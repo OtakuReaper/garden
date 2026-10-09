@@ -36,13 +36,13 @@
         <h1>Jester</h1>
         <div>
             <h2>Start of it All</h2>
-            <p style="text-indent: 40px;">
+            <p class="blog">
                 Growing up I was never really given any form of allowance. I was always told you had snacks at home or you'll have lunch after school is over.
                 So I've never really had to manage my funds growing up because I had none. However, during my internship in 2024, I received a small stipen.
                 Since it was just an internship I didn't manage my money in any form besides just holding on it. Following that internship I was hired,
                 therefore my little stipen was changed into a salary. From that point on I decided that I'd be managing my money; ergo budgetting.
             </p>
-            <p style="text-indent: 40px;">
+            <p class="blog">
                 During this period in my life I used to name things I used to interact with frequently. So I decided on the name Jester for the google sheet's I'd be
                 using for my budget sheet. Named after my favorite character from Critical Role's Second Campaign. I now had a working budget sheet that managed
                 dutifully. Overtime I started changing the layouts, how I used to track my usage and how I determine what to spend my money on. After each major change
@@ -54,9 +54,84 @@
 
         <div>
             <h2>Analyzing Jester v7</h2>
-            <p style="text-indent: 40px;">
-                
+            <h3>Entries 1</h3>
+            <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 20px;">
+                <img src="../images/jester/jester-entry.png"/>
+                <div>
+                    <p>
+                        
+                        The core data structure that allows for Jester to work properly is the budget <strong>entry</strong>. Entries is how Jester is aware of how money is being
+                        spent. The essential data modelling will be as follows:
+                    </p>
+                    <ul>
+                        <li>Description - Text - Description of the entry</li>
+                        <li>Date - Date - Date of when the money was spent</li>
+                        <li>Amount - Numbers - Amount of funds used</li>
+                        <li>Budget - Foreign Key - Link to a budget for tracking</li>
+                    </ul>
+                    <p>
+                        Note: that the color of the entry is based on the color of the budget the entry is for. Also, they're 3 types of entries: Debit, Credit, Transfers. Debit
+                        is the default and most common type of entry where money is leaving the budget. Credit is the rarest type and is when money is coming into the budget,
+                        and lastly the second common type of entry is the Transfer. Transfers are movent of funds between to budgets, they are colored different for that purpose.                        
+                    </p>
+
+                </div>
+            </div>
+
+            <h3>Budgets 1</h3>
+            <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 20px">
+                <div>
+                    <p>
+                        Another core data structure of Jester is the <strong>budget</strong>. The budget is how Jester is aware of how much money we have currently. Which determines
+                        how much we can spend and if our allocation of funds is sound. The allocation of funds occurs after every new pay period; we'll get back to this shortly.
+                        The amount spent is determined by calculating the funds used during that pay period by the current entries. The amount remaining is just a simple calculation
+                        using the first two values. These calculations has to be done within the given pay period. Coming back to the allocation, it happens after I get paid which is 
+                        why it's called a pay period or a <strong>period</strong> for short. The allocation process simple, based on a give allocation we add the new funds ontop of the
+                        current funds in the budget.
+                    </p> 
+                    <img src="../images/jester/jester-budget-allocation.png"/>
+                    <p>
+                        Data Model of the budget is as follows:
+                    </p>
+                    <ul>
+                        <li>Budget Name - Text - Name of the budget</li>
+                        <li>Budget Color - Text - Hex code representing the color for display</li>
+                        <li>Funds - Numbers - Current amount funds for that budget</li>
+                        <li>Allocation - Numbers - The amount funds that it'll be assigned every pay period</li>
+                    </ul>
+                    <h4>Entries 2</h4>
+                    <p>
+                        Since the we need to track the current entries for the pay period, we'll need a way to track them. Hence we can assign a period to the entries. Now
+                        we have the following structure for the entries:
+                    </p>
+                    <ul>
+                        <li>Description - Text - Description of the entry</li>
+                        <li>Date - Date - Date of when the money was spent</li>
+                        <li>Amount - Numbers - Amount of funds used</li>
+                        <li>Budget - Foreign Key - Link to a budget for tracking</li>
+                        <li>Period - Foreign Key - Link to a budget for tracking<strong>or</strong> <br> Period - Numbers - Value to group entries for a given pay period</li>
+                    </ul>
+                    
+                </div>
+                <img src="../images/jester/jester-budgets.png"/>
+            </div>
+        </div>
+
+        <h2>Jester Functionality</h2>
+        <div>
+            <h3>Overall Goal:</h3>
+            <p>Create A function web application.</p>
+
+            <h3>Requirements:</h3>
+            
+            <h4>Entries</h4>
+            <p>
+                <strong>Goal:</strong> Full Entry Management <br>
+                <strong>Reason:</strong> So that user's can
             </p>
+            
+            <h4></h4>
+
         </div>
     </div>
 

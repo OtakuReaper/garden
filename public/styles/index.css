@@ -8,6 +8,10 @@ p, h1, h2, h3, h4, li::marker, li {
     text-shadow: 2px 0 0 #ffffff, -2px 0 0 #ffffff, 0 -2px 0 #ffffff, 0 2px 0 #ffffff;
 }
 
+p.blog {
+    text-indent: 40px;
+}
+
 a {
     color:#301F0B;
     text-shadow: 2px 0 0 #ffffff, -2px 0 0 #ffffff, 0 -2px 0 #ffffff, 0 2px 0 #ffffff;
